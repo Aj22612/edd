@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ayden Sherwood — EDD Portfolio</title>
+<meta name="description" content="Engineering Design &amp; Development project portfolio — Ayden Sherwood, Victor High School, Victor NY.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+
+<!-- ============================================================
+     YOUR PROJECTS LIVE HERE.
+     Each { ... } block is one project page.
+     Copy a whole block, paste it above the one below it, and edit
+     the text between the quote marks. Keep the commas where they are.
+
+     id       -> short name used in the web address. lowercase, no spaces.
+     status   -> "Planning" | "In progress" | "Testing" | "Complete"
+     started  -> "YYYY-MM-DD"
+     images   -> put photo files in the images/ folder next to this file
+     ============================================================ -->
+<script>
+const PROJECTS = [
+
+  {
+    id: "paper-crusher",
+    title: "Paper Crusher",
+    subtitle: "",
+    status: "Planning",
+    started: "2026-09-15",
+    tags: [],
+    summary: "",
+    images: [
+      // { file: "images/sketch.jpg", caption: "First concept sketch" }
+    ],
+    sections: [
+      { heading: "Problem Statement", body: "" },
+      { heading: "Research", body: "" },
+      { heading: "Concept Design", body: "" },
+      { heading: "Build", body: "" },
+      { heading: "Testing & Data", body: "" },
+      { heading: "Reflection", body: "" }
+    ]
+  }
+
+];
+</script>
+
+<style>
+  :root {
+    --bg: #F2F5F9;
+    --surface: #FFFFFF;
+    --surface-2: #E9EEF6;
+    --line: #D3DCE8;
+    --line-soft: #E4EAF3;
+    --ink: #0D1726;
+    --ink-2: #33455F;
+    --muted: #64748E;
+    --accent: #1B45C8;
+    --accent-soft: #E1E8FE;
+    --signal: #D2561B;
+    --signal-soft: #FBE7DA;
+    --good: #16724C;
+    --good-soft: #D9F0E4;
+    --shadow: 0 1px 2px rgba(13,23,38,.06), 0 8px 24px -12px rgba(13,23,38,.22);
+    --radius: 12px;
+    color-scheme: light;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0B1220; --surface: #141D2E; --surface-2: #1B2639;
+      --line: #2A374C; --line-soft: #222D41;
+      --ink: #E9EFFA; --ink-2: #B7C4D8; --muted: #8496B0;
+      --accent: #7FA0FF; --accent-soft: #1B2A4E;
+      --signal: #F08852; --signal-soft: #3A2317;
+      --good: #6FD3A8; --good-soft: #143024;
+      --shadow: 0 1px 2px rgba(0,0,0,.4), 0 10px 28px -14px rgba(0,0,0,.7);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0B1220; --surface: #141D2E; --surface-2: #1B2639;
+    --line: #2A374C; --line-soft: #222D41;
+    --ink: #E9EFFA; --ink-2: #B7C4D8; --muted: #8496B0;
+    --accent: #7FA0FF; --accent-soft: #1B2A4E;
+    --signal: #F08852; --signal-soft: #3A2317;
+    --good: #6FD3A8; --good-soft: #143024;
+    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 10px 28px -14px rgba(0,0,0,.7);
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { max-width: 100%; }
+  h1, h2, h3 {
+    font-family: Archivo, "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+    text-wrap: balance; margin: 0; line-height: 1.12; letter-spacing: -0.02em;
+  }
+  p { margin: 0; }
+  a { color: var(--accent); }
+  .wrap { width: min(1080px, 100%); margin: 0 auto; padding-inline: 20px; }
+
+  .topbar {
+    position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .topbar-in { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; padding-block: 14px; }
+  .mark { display: flex; align-items: baseline; gap: 10px; margin-right: auto; text-decoration: none; color: inherit; }
+  .mark b { font-family: Archivo, sans-serif; font-weight: 800; font-size: 26px; letter-spacing: -0.04em; color: var(--ink); }
+  .mark span {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted);
+  }
+  .who { font-size: 13px; color: var(--muted); text-align: right; line-height: 1.35; }
+  .who strong { display: block; color: var(--ink-2); font-weight: 600; }
+
+  .lede { padding-block: 40px 28px; display: grid; gap: 14px; max-width: 62ch; }
+  .lede h1 { font-size: clamp(32px, 6vw, 48px); font-weight: 800; }
+  .lede p { color: var(--ink-2); font-size: 17px; }
+  .course-rail {
+    display: flex; flex-wrap: wrap; gap: 8px 22px;
+    font-family: "IBM Plex Mono", monospace; font-size: 11.5px;
+    letter-spacing: .1em; text-transform: uppercase; color: var(--muted);
+    padding-bottom: 22px; border-bottom: 1px solid var(--line-soft);
+  }
+  .section-head { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; padding-block: 28px 16px; }
+  .section-head h2 { font-size: 20px; font-weight: 700; }
+  .count { font-family: "IBM Plex Mono", monospace; font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; padding-bottom: 56px; }
+  .card {
+    display: flex; flex-direction: column; gap: 10px;
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 18px;
+    text-decoration: none; color: inherit;
+    transition: box-shadow .16s, border-color .16s, transform .16s;
+  }
+  .card:hover { box-shadow: var(--shadow); border-color: var(--accent); transform: translateY(-2px); }
+  .card h3 { font-size: 19px; font-weight: 700; }
+  .card .sub { color: var(--muted); font-size: 14.5px; }
+  .card .foot {
+    margin-top: auto; padding-top: 12px; border-top: 1px solid var(--line-soft);
+    display: flex; align-items: center; justify-content: space-between; gap: 10px;
+    font-family: "IBM Plex Mono", monospace; font-size: 11.5px; color: var(--muted);
+    font-variant-numeric: tabular-nums;
+  }
+  .card .open { color: var(--accent); font-weight: 500; }
+  .thumb {
+    aspect-ratio: 16/9; width: 100%; object-fit: cover;
+    border-radius: 8px; background: var(--surface-2); border: 1px solid var(--line-soft);
+  }
+
+  .chip {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-family: "IBM Plex Mono", monospace; font-size: 10.5px;
+    letter-spacing: .1em; text-transform: uppercase;
+    padding: 4px 8px; border-radius: 999px;
+    background: var(--surface-2); color: var(--ink-2); width: fit-content;
+  }
+  .chip.s-progress { background: var(--accent-soft); color: var(--accent); }
+  .chip.s-testing { background: var(--signal-soft); color: var(--signal); }
+  .chip.s-complete { background: var(--good-soft); color: var(--good); }
+  .chip::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag { font-family: "IBM Plex Mono", monospace; font-size: 11px; color: var(--muted); border: 1px solid var(--line); border-radius: 6px; padding: 2px 7px; }
+
+  .empty { border: 1px dashed var(--line); border-radius: var(--radius); padding: 40px 24px; text-align: center; color: var(--muted); }
+
+  .back {
+    display: inline-flex; align-items: center; gap: 7px;
+    font-family: "IBM Plex Mono", monospace; font-size: 12px;
+    letter-spacing: .08em; text-transform: uppercase;
+    text-decoration: none; color: var(--muted); padding-block: 26px 0;
+  }
+  .back:hover { color: var(--accent); }
+  .proj-head { padding-block: 18px 22px; display: grid; gap: 14px; border-bottom: 1px solid var(--line-soft); }
+  .proj-head h1 { font-size: clamp(30px, 5.5vw, 44px); font-weight: 800; }
+  .proj-head .sub { color: var(--ink-2); font-size: 17px; max-width: 62ch; }
+  .meta-rail {
+    display: flex; flex-wrap: wrap; gap: 10px 28px; align-items: center;
+    font-family: "IBM Plex Mono", monospace; font-size: 11.5px;
+    letter-spacing: .08em; text-transform: uppercase; color: var(--muted);
+    font-variant-numeric: tabular-nums;
+  }
+  .meta-rail b { color: var(--ink-2); font-weight: 500; }
+  .summary { font-size: 18px; line-height: 1.65; color: var(--ink-2); max-width: 65ch; padding-block: 26px; }
+  .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; }
+  .shot { display: grid; gap: 6px; margin: 0; }
+  .shot img { width: 100%; border-radius: 10px; border: 1px solid var(--line); background: var(--surface-2); }
+  .shot figcaption { font-size: 13px; color: var(--muted); }
+  .steps { display: grid; gap: 34px; padding-block: 34px 64px; max-width: 72ch; }
+  .step { display: grid; gap: 10px; }
+  .step-no { font-family: "IBM Plex Mono", monospace; font-size: 11.5px; letter-spacing: .14em; color: var(--accent); }
+  .step h2 { font-size: 23px; font-weight: 700; }
+  .step .body { white-space: pre-wrap; color: var(--ink-2); font-size: 16.5px; }
+
+  footer { border-top: 1px solid var(--line-soft); padding-block: 26px 40px; color: var(--muted); font-size: 13px; }
+
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
+  @media (max-width: 560px) { .who { text-align: left; } }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar-in">
+    <a class="mark" href="#/">
+      <b>EDD</b>
+      <span>Engineering Design &amp; Development</span>
+    </a>
+    <div class="who">
+      <strong>Ayden Sherwood</strong>
+      Victor High School &middot; Victor, NY
+    </div>
+  </div>
+</header>
+
+<main class="wrap" id="view"></main>
+
+<footer class="wrap">
+  Ayden Sherwood &middot; PLTW Engineering Design &amp; Development &middot; Victor High School
+</footer>
+
+<script>
+(function () {
+  "use strict";
+  var view = document.getElementById("view");
+
+  function esc(s) {
+    return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+  function statusClass(s) {
+    var k = String(s || "").toLowerCase();
+    if (k.indexOf("progress") > -1) return "s-progress";
+    if (k.indexOf("test") > -1) return "s-testing";
+    if (k.indexOf("complete") > -1) return "s-complete";
+    return "";
+  }
+  function fmtDate(iso) {
+    if (!iso) return "—";
+    var p = String(iso).slice(0, 10).split("-");
+    if (p.length !== 3) return iso;
+    var d = new Date(Number(p[0]), Number(p[1]) - 1, Number(p[2]));
+    return isNaN(d) ? iso : d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+  }
+
+  function renderHome() {
+    var items = PROJECTS.slice().sort(function (a, b) {
+      return String(b.started || "").localeCompare(String(a.started || ""));
+    });
+    var cards = items.map(function (p) {
+      var cover = (p.images || [])[0];
+      return '<a class="card" href="#/p/' + encodeURIComponent(p.id) + '">' +
+        (cover ? '<img class="thumb" src="' + esc(cover.file) + '" alt="">' : '') +
+        '<span class="chip ' + statusClass(p.status) + '">' + esc(p.status || "Planning") + '</span>' +
+        '<h3>' + esc(p.title) + '</h3>' +
+        (p.subtitle ? '<p class="sub">' + esc(p.subtitle) + '</p>' : '') +
+        ((p.tags || []).length ? '<div class="tags">' + p.tags.slice(0, 4).map(function (t) {
+          return '<span class="tag">' + esc(t) + '</span>'; }).join('') + '</div>' : '') +
+        '<div class="foot"><span>' + esc(fmtDate(p.started)) + '</span><span class="open">Open &rarr;</span></div>' +
+      '</a>';
+    }).join('');
+
+    document.title = "Ayden Sherwood — EDD Portfolio";
+    view.innerHTML =
+      '<section class="lede">' +
+        '<h1>Engineering notebook &amp; project archive</h1>' +
+        '<p>Everything I design, build, test, and break in EDD — problem statements, CAD, prototypes, test data, and what I\'d do differently next time. Click a project to open its full write-up.</p>' +
+      '</section>' +
+      '<div class="course-rail">' +
+        '<span>PLTW Engineering Design &amp; Development</span>' +
+        '<span>Victor High School</span>' +
+        '<span>Ayden Sherwood</span>' +
+      '</div>' +
+      '<div class="section-head"><h2>Projects</h2><span class="count">' +
+        (items.length ? String(items.length).padStart(2, "0") + " total" : "none yet") +
+      '</span></div>' +
+      (items.length
+        ? '<div class="grid">' + cards + '</div>'
+        : '<div class="grid"><div class="empty" style="grid-column:1/-1;">No projects posted yet.</div></div>');
+  }
+
+  function renderProject(p) {
+    var imgs = p.images || [];
+    var secs = (p.sections || []).filter(function (s) { return (s.heading || "").trim() || (s.body || "").trim(); });
+    document.title = p.title + " — EDD Portfolio";
+    view.innerHTML =
+      '<a class="back" href="#/">&larr; All projects</a>' +
+      '<section class="proj-head">' +
+        '<span class="chip ' + statusClass(p.status) + '">' + esc(p.status || "Planning") + '</span>' +
+        '<h1>' + esc(p.title) + '</h1>' +
+        (p.subtitle ? '<p class="sub">' + esc(p.subtitle) + '</p>' : '') +
+        '<div class="meta-rail">' +
+          '<span>Started <b>' + esc(fmtDate(p.started)) + '</b></span>' +
+          ((p.tags || []).length ? '<span>' + p.tags.map(esc).join(' &middot; ') + '</span>' : '') +
+        '</div>' +
+      '</section>' +
+      (p.summary ? '<p class="summary">' + esc(p.summary) + '</p>' : '<div style="height:20px;"></div>') +
+      (imgs.length ? '<div class="gallery">' + imgs.map(function (im) {
+        return '<figure class="shot"><img src="' + esc(im.file) + '" alt="' + esc(im.caption || p.title) + '">' +
+          (im.caption ? '<figcaption>' + esc(im.caption) + '</figcaption>' : '') + '</figure>';
+      }).join('') + '</div>' : '') +
+      '<div class="steps">' + secs.map(function (s, i) {
+        return '<section class="step">' +
+          '<span class="step-no">' + String(i + 1).padStart(2, "0") + '</span>' +
+          '<h2>' + esc(s.heading || "Untitled section") + '</h2>' +
+          (s.body ? '<div class="body">' + esc(s.body) + '</div>'
+                  : '<div class="body" style="color:var(--muted);">Not written up yet.</div>') +
+        '</section>';
+      }).join('') + '</div>';
+  }
+
+  function render() {
+    var m = (location.hash || "#/").match(/^#\/p\/(.+)$/);
+    var p = m && PROJECTS.filter(function (x) { return x.id === decodeURIComponent(m[1]); })[0];
+    if (p) { renderProject(p); window.scrollTo(0, 0); }
+    else renderHome();
+  }
+
+  window.addEventListener("hashchange", render);
+  render();
+})();
+</script>
+</body>
+</html>
